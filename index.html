@@ -53,7 +53,7 @@
         
         .hero-bg {
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.7) 100%),
-                        url('C:\Users\sabua\Downloads\portfolio\resources\hero-bg.jpg.png') center/cover;
+                        url('resources/hero-bg.jpg.png') center/cover;
             min-height: 40vh;
         }
         
@@ -211,7 +211,36 @@
             color: var(--primary-light);
             transition: all 0.3s ease;
         }
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
         
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            border: 3px solid var(--primary-dark);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(to bottom, var(--accent-blue), transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
         .form-input:focus {
             border-color: var(--accent-blue);
             box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
@@ -223,7 +252,17 @@
             color: white;
             transition: all 0.3s ease;
         }
+        .achievement-card {
+            background: rgba(248, 249, 250, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
         
+        .achievement-card:hover {
+            background: rgba(248, 249, 250, 0.1);
+            transform: translateY(-3px);
+        }
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
@@ -339,7 +378,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="reveal">
                     <div class="relative">
-                        <img src="C:\Users\sabua\Downloads\portfolio\resources\profile-new.jpg.jpg" alt="Abel Payyanickal" 
+                        <img src="resources\profile-new.jpg.jpg" alt="Abel Payyanickal" 
                              class="w-full max-w-md mx-auto rounded-2xl shadow-2xl hover-lift">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-amber-500/20 rounded-2xl blur-xl"></div>
                     </div>
@@ -543,7 +582,283 @@
     </section>
         </div>
     </section>
+    <!-- Projects Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Project Filter -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 reveal">
+                <button class="filter-btn active px-6 py-2 rounded-full font-medium transition-all" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium transition-all" data-filter="security">
+                    Security
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium transition-all" data-filter="ai">
+                    AI/ML
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium transition-all" data-filter="web">
+                    Web Development
+                </button>                
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Kiro Hackathon SaveBetter Project -->
+                <div class="project-card rounded-2xl p-6 reveal" data-category="ai hackathon">
+                    <div class="mb-4">
+                        <img src="resources/project-kiro-savebetter.jpg.png" alt="Kiro SaveBetter" 
+                             class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3 text-white">Kiro Hackathon - SaveBetter</h3>
+                    <p class="font-body text-gray-400 mb-4 leading-relaxed">
+                        AI-powered financial wellness application built during the Kiro Code with Kiro Hackathon. 
+                        Features intelligent savings recommendations, expense tracking, and personalized financial insights 
+                        using advanced machine learning algorithms.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Machine Learning</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">AI</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Financial Tech</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <a href="https://github.com/Abel356/SaveBetter_KiroHackathon" target="_blank" 
+                           class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            View Code
+                        </a>
+                        <div class="flex space-x-3">
+                            <span class="text-sm text-gray-400">🏆 Hackathon</span>
+                            <span class="text-sm text-gray-400">📁 Python</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-700 pt-4">
+                        <h4 class="font-semibold text-sm text-blue-400 mb-2">Hackathon Achievement:</h4>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• AI-powered financial recommendations</li>
+                            <li>• Real-time expense categorization</li>
+                            <li>• Personalized savings goals</li>
+                            <li>• Interactive dashboard with insights</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- Precogni Hack the Six Project -->
+                <div class="project-card rounded-2xl p-6 reveal" data-category="ai hackathon">
+                    <div class="mb-4">
+                        <img src="resources/project-precogni-hackthesix.jpg.png" alt="Precogni Hack the Six" 
+                             class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3 text-white">Precogni - Hack the Six</h3>
+                    <p class="font-body text-gray-400 mb-4 leading-relaxed">
+                        Predictive analytics platform developed for Hack the Six Toronto's largest summer hackathon. 
+                        Utilizes machine learning to forecast trends and provide actionable insights across various domains 
+                        including finance, weather, and social media trends.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">React</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Predictive Analytics</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Data Viz</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <a href="https://github.com/Abel356/HackThe6ix" target="_blank" 
+                           class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            View Code
+                        </a>
+                        <div class="flex space-x-3">
+                            <span class="text-sm text-gray-400">🏆 Hackathon</span>
+                            <span class="text-sm text-gray-400">📁 JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-700 pt-4">
+                        <h4 class="font-semibold text-sm text-blue-400 mb-2">Key Features:</h4>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• Multi-domain prediction models</li>
+                            <li>• Real-time data processing</li>
+                            <li>• Interactive visualization dashboard</li>
+                            <li>• Trend analysis and forecasting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Network Scanner Project -->
+                <div class="project-card rounded-2xl p-6 reveal" data-category="security">
+                    <div class="mb-4">
+                        <img src="resources/project-network-scanner.jpg.png" alt="Network Scanner" 
+                             class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3 text-white">Network Scanner</h3>
+                    <p class="font-body text-gray-400 mb-4 leading-relaxed">
+                        A comprehensive network scanning tool that examines networks to detect connected devices, 
+                        accessible ports, and active services with security vulnerability assessment. Features 
+                        ICMP, TCP, and UDP scanning methods with user-friendly interface.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Network Security</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">TCP/IP</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">ICMP</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <a href="https://github.com/Abel356/Network-Scanner" target="_blank" 
+                           class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            View Code
+                        </a>
+                        <div class="flex space-x-3">
+                            <span class="text-sm text-gray-400">⭐ 0</span>
+                            <span class="text-sm text-gray-400">📁 Python</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-700 pt-4">
+                        <h4 class="font-semibold text-sm text-blue-400 mb-2">Key Features:</h4>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• Network device detection</li>
+                            <li>• Port scanning and service identification</li>
+                            <li>• Security vulnerability assessment</li>
+                            <li>• Multiple scanning protocols</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- ATM Console Project -->
+                <div class="project-card rounded-2xl p-6 reveal" data-category="security">
+                    <div class="mb-4">
+                        <img src="resources/project-atm-console.jpg.png" alt="ATM Console" 
+                             class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3 text-white">ATM Console Application</h3>
+                    <p class="font-body text-gray-400 mb-4 leading-relaxed">
+                        A sophisticated ATM console application in C# showcasing robust cardHolder class design 
+                        for secure banking operations. Features user authentication, deposit, withdrawal, 
+                        and balance checking with security best practices.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">C#</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">.NET</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Security</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">OOP</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <a href="https://github.com/Abel356/ATMC0NS0LE" target="_blank" 
+                           class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            View Code
+                        </a>
+                        <div class="flex space-x-3">
+                            <span class="text-sm text-gray-400">⭐ 0</span>
+                            <span class="text-sm text-gray-400">📁 C#</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-700 pt-4">
+                        <h4 class="font-semibold text-sm text-blue-400 mb-2">Key Features:</h4>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• Secure card and PIN verification</li>
+                            <li>• Banking operations (deposit/withdraw)</li>
+                            <li>• Balance checking and overdraft protection</li>
+                            <li>• Object-oriented design patterns</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Password Strength Checker -->
+                <div class="project-card rounded-2xl p-6 reveal" data-category="security">
+                    <div class="mb-4">
+                        <img src="resources/project-password-checker.jpg.png" alt="Password Strength Checker" 
+                             class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3 text-white">Password Strength Checker</h3>
+                    <p class="font-body text-gray-400 mb-4 leading-relaxed">
+                        Real-time password strength analysis tool with visual feedback, criteria validation, 
+                        and visibility toggle functionality. Provides instant feedback on password security 
+                        based on length, complexity, and character variety.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">HTML/CSS</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Security</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">UX/UI</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <a href="https://github.com/Abel356/PasswordStrengthChecker" target="_blank" 
+                           class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            View Code
+                        </a>
+                        <div class="flex space-x-3">
+                            <span class="text-sm text-gray-400">⭐ 0</span>
+                            <span class="text-sm text-gray-400">📁 JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-700 pt-4">
+                        <h4 class="font-semibold text-sm text-blue-400 mb-2">Key Features:</h4>
+                        <ul class="text-sm text-gray-400 space-y-1">
+                            <li>• Real-time strength analysis</li>
+                            <li>• Visual progress indicators</li>
+                            <li>• Password visibility toggle</li>
+                            <li>• Multi-criteria validation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Google Translate Clone -->
+                <div class="project-card rounded-2xl p-6 reveal" data-category="web">
+                    <div class="mb-4">
+                        <img src="resources/project-translate-clone.jpg.png" alt="Google Translate Clone" 
+                             class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3 text-white">Google Translate Clone</h3>
+                    <p class="font-body text-gray-400 mb-4 leading-relaxed">
+                        A modern web application that replicates Google Translate functionality with clean UI, 
+                        multiple language support, and smooth user interactions. Features responsive design 
+                        and intuitive user experience.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">CSS</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">APIs</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Responsive</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/Abel356/GoogleTranslate-CLONE-" target="_blank" 
+                           class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            View Code
+                        </a>
+                        <div class="flex space-x-3">
+                            <span class="text-sm text-gray-400">⭐ 0</span>
+                            <span class="text-sm text-gray-400">📁 CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tic Tac Toe -->
+                <div class="project-card rounded-2xl p-6 reveal" data-category="web">
+                    <div class="mb-4">
+                        <img src="resources/project-tictactoe.jpg.png" alt="Tic Tac Toe" 
+                             class="w-full h-48 object-cover rounded-lg">
+                    </div>
+                    <h3 class="font-display font-semibold text-xl mb-3 text-white">Tic Tac Toe Game</h3>
+                    <p class="font-body text-gray-400 mb-4 leading-relaxed">
+                        Interactive Tic Tac Toe game with modern UI, smooth animations, and both player vs player 
+                        and player vs AI game modes. Features responsive design and engaging user experience.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">CSS</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">Game Dev</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-sm font-medium">AI</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/Abel356/TicTacToe" target="_blank" 
+                           class="btn-primary px-4 py-2 rounded-lg text-sm font-medium">
+                            View Code
+                        </a>
+                        <div class="flex space-x-3">
+                            <span class="text-sm text-gray-400">⭐ 5</span>
+                            <span class="text-sm text-gray-400">📁 CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1078,7 +1393,46 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
     });
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+            // Filter projects with animation
+            projectCards.forEach((card, index) => {
+                const categories = card.getAttribute('data-category').split(' ');
+                const shouldShow = filter === 'all' || categories.includes(filter);
+
+                if (shouldShow) {
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.3s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, index * 100);
+                } else {
+                    card.style.transition = 'all 0.3s ease';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(-20px)';
+                    
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
     // Mobile menu
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     if (mobileMenuBtn) {
